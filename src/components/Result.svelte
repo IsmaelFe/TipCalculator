@@ -61,6 +61,10 @@
     margin: 100px auto 0 auto;
   }
 
+  button:hover {
+    cursor: pointer;
+  }
+
   h3 {
     font-size: 1em;
   }

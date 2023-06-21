@@ -28,6 +28,10 @@
     padding: 6px 12px;
   }
 
+  button:hover {
+    cursor: pointer;
+  }
+
   input {
     color: #547876;
     font-weight: 600;
@@ -39,7 +43,15 @@
     font-family: "Space Mono", monospace;
   }
 
+  input:hover {
+    cursor: pointer;
+  }
+
   input::placeholder {
     color: #587472;
+  }
+
+  input[type="text"]:focus {
+    outline: 2px solid #58aa9c;
   }
 </style>

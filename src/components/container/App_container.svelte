@@ -4,24 +4,24 @@
   import Result from "../Result.svelte";
 </script>
 
-<div>
+<div class="container-main">
   <div class="container">
     <label for="b">Bill</label>
-    <input type="text" id="b" placeholder="0" />
+    <input type="number" id="b" placeholder="0" />
     <h4>Select Tip %</h4>
     <Buttons />
     <label for="n">Number of People</label>
-    <input type="text" id="n" placeholder="0" />
+    <input type="number" id="n" placeholder="0" />
   </div>
   <Result />
 </div>
 
 <style scoped>
-  div {
+  .container-main {
     display: flex;
     gap: 10px;
     width: 40%;
-    height: 50%;
+    height: 350px;
     background-color: white;
     padding: 15px;
     border-radius: 15px;
@@ -29,7 +29,9 @@
 
   .container {
     display: flex;
+    padding: 10px;
     flex-direction: column;
+    justify-content: space-around;
     gap: 23px;
   }
 
@@ -42,10 +44,24 @@
     margin-top: -15px;
     font-family: "Space Mono", monospace;
     font-weight: 600;
+    appearance: textfield;
+  }
+
+  input:hover {
+    cursor: pointer;
   }
 
   input::placeholder {
     color: #9cb5b4;
+  }
+
+  input:focus {
+    outline: 2px solid #58aa9c;
+  }
+
+  input::-webkit-inner-spin-button,
+  input::-webkit-outer-spin-button {
+    display: none;
   }
 
   label {
