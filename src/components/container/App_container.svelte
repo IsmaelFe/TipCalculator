@@ -37,6 +37,7 @@
 
   input {
     border: none;
+    width: 95%;
     background-color: #f3f8fb;
     text-align: end;
     padding: 8px;
@@ -74,5 +75,14 @@
     color: #60787b;
     font-size: 0.8em;
     font-weight: 600;
+  }
+
+  @media (max-width: 1050px) {
+    .container-main {
+      flex-direction: column;
+      width: 93%;
+      border-radius: 30px 30px 0 0;
+      height: 100%;
+    }
   }
 </style>

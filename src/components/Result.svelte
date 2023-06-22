@@ -58,7 +58,7 @@
     border: none;
     border-radius: 3px;
     padding: 7px;
-    margin: 100px auto 0 auto;
+    margin: 30% auto 0 auto;
   }
 
   button:hover {
@@ -67,5 +67,12 @@
 
   h3 {
     font-size: 1em;
+  }
+
+  @media (max-width: 1050px) {
+    .container {
+      width: 85%;
+      margin: auto;
+    }
   }
 </style>
