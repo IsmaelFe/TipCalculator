@@ -1,4 +1,5 @@
 <script>
+  export let result = "$0.00";
 </script>
 
 <div class="container">
@@ -7,7 +8,7 @@
       <h3>Tip Amount</h3>
       <span>/ person</span>
     </div>
-    <p>$0.00</p>
+    <p>{result}</p>
   </div>
   <div class="result">
     <div>

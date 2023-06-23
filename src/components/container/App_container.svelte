@@ -2,18 +2,46 @@
   import Icon1 from "../../assets/icon-dollar.svg";
   import Buttons from "../Buttons.svelte";
   import Result from "../Result.svelte";
+
+  let empty = null;
+  let value = false;
+  let result;
+  let operator;
+
+  function newValue(e) {
+    empty = Number(e);
+  }
+
+  function presion(e) {
+    operator = e.detail;
+
+    if (empty === null) {
+      value = true;
+    } else {
+      result = (empty / 100) * operator;
+    }
+  }
 </script>
 
 <div class="container-main">
   <div class="container">
     <label for="b">Bill</label>
-    <input type="number" id="b" placeholder="0" />
+    <input
+      type="number"
+      id="b"
+      placeholder="0"
+      value={empty}
+      on:keyup={(e) => newValue(e.target.value)}
+    />
+    {#if value}
+      <span>El campo es necesario</span>
+    {/if}
     <h4>Select Tip %</h4>
-    <Buttons />
+    <Buttons on:pressed={presion} />
     <label for="n">Number of People</label>
     <input type="number" id="n" placeholder="0" />
   </div>
-  <Result />
+  <Result {result} />
 </div>
 
 <style scoped>

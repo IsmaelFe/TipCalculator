@@ -1,12 +1,39 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
+
+  function pressed(value) {
+    dispatch("pressed", value);
+  }
 </script>
 
 <div>
-  <button>5%</button>
-  <button>10%</button>
-  <button>15%</button>
-  <button>25%</button>
-  <button>50%</button>
+  <button
+    on:click={() => {
+      pressed(5);
+    }}>5%</button
+  >
+  <button
+    on:click={() => {
+      pressed(10);
+    }}>10%</button
+  >
+  <button
+    on:click={() => {
+      pressed(15);
+    }}>15%</button
+  >
+  <button
+    on:click={() => {
+      pressed(25);
+    }}>25%</button
+  >
+  <button
+    on:click={() => {
+      pressed(50);
+    }}>50%</button
+  >
   <input type="text" placeholder="Custom" />
 </div>
 
