@@ -1,6 +1,13 @@
 <script>
-  export let result = "$0.00";
-  export let operation = "$0.00";
+  import { createEventDispatcher } from "svelte";
+  export let result = "0.00";
+  export let operation = "0.00";
+  export let isActive;
+  const reset = createEventDispatcher();
+
+  function functionReset() {
+    reset("reset");
+  }
 </script>
 
 <div class="container">
@@ -9,16 +16,21 @@
       <h3>Tip Amount</h3>
       <span>/ person</span>
     </div>
-    <p>{operation}</p>
+    <p>${operation}</p>
   </div>
   <div class="result">
     <div>
       <h3>Total</h3>
       <span>/ person</span>
     </div>
-    <p>{result}</p>
+    <p>${result}</p>
   </div>
-  <button> RESET </button>
+  <button
+    class={isActive ? "active" : "inactive"}
+    on:click={() => functionReset()}
+  >
+    RESET
+  </button>
 </div>
 
 <style scoped>
@@ -51,7 +63,7 @@
     font-weight: 600;
   }
 
-  button {
+  .active {
     color: #034a4f;
     width: 95%;
     font-family: "Space Mono", monospace;
@@ -61,10 +73,20 @@
     border-radius: 3px;
     padding: 7px;
     margin: 30% auto 0 auto;
+    cursor: pointer;
   }
 
-  button:hover {
-    cursor: pointer;
+  .inactive {
+    color: #034a4f;
+    width: 95%;
+    font-family: "Space Mono", monospace;
+    font-weight: 600;
+    background-color: #0d696d;
+    border: none;
+    border-radius: 3px;
+    padding: 7px;
+    margin: 30% auto 0 auto;
+    cursor: not-allowed;
   }
 
   h3 {

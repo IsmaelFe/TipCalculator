@@ -7,6 +7,7 @@
   let empty2 = null;
   let value1 = false;
   let value2 = false;
+  let isActive = false;
   let result;
   let operator;
   let operation;
@@ -33,11 +34,24 @@
       }
       value1 = true;
     } else {
+      let temp1;
+      let temp2;
       value2 = false;
       value1 = false;
-      operation = (empty1 / 100) * operator;
-      result = operation / empty2;
+      isActive = true;
+      temp1 = (empty1 / 100) * operator;
+      operation = temp1.toFixed(2);
+      temp2 = (empty1 + temp1) / empty2;
+      result = temp2.toFixed(2);
     }
+  }
+
+  function functionReset() {
+    operation = "0.00";
+    result = "0.00";
+    empty2 = null;
+    empty1 = null;
+    isActive = false;
   }
 </script>
 
@@ -69,7 +83,7 @@
       <span>El campo es necesario</span>
     {/if}
   </div>
-  <Result {result} {operation} />
+  <Result {result} {operation} {isActive} on:reset={functionReset} />
 </div>
 
 <style scoped>
