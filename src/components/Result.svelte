@@ -76,6 +76,11 @@
     cursor: pointer;
   }
 
+  .active:hover {
+    background-color: #9fe9de;
+    color: #01464d;
+  }
+
   .inactive {
     color: #034a4f;
     width: 95%;

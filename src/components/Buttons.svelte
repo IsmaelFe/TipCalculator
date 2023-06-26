@@ -1,5 +1,6 @@
 <script>
   import { createEventDispatcher } from "svelte";
+  export let custom;
 
   const dispatch = createEventDispatcher();
 
@@ -34,7 +35,12 @@
       pressed(50);
     }}>50%</button
   >
-  <input type="text" placeholder="Custom" />
+  <input
+    type="text"
+    placeholder="Custom"
+    bind:value={custom}
+    on:input={() => pressed(custom)}
+  />
 </div>
 
 <style scoped>
@@ -57,6 +63,8 @@
 
   button:hover {
     cursor: pointer;
+    background-color: #9fe9de;
+    color: #01464d;
   }
 
   input {
@@ -78,7 +86,7 @@
     color: #587472;
   }
 
-  input[type="text"]:focus {
+  input:focus {
     outline: 2px solid #58aa9c;
   }
 </style>
