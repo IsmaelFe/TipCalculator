@@ -1,5 +1,4 @@
 <script>
-  import Icon1 from "../../assets/icon-dollar.svg";
   import Buttons from "../Buttons.svelte";
   import Result from "../Result.svelte";
 
